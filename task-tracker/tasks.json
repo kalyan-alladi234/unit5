@@ -1,0 +1,20 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Build login page",
+      "description": "Create login UI with React",
+      "tag": "frontend",
+      "priority": "high",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "title": "Setup database",
+      "description": "Install and configure MongoDB",
+      "tag": "backend",
+      "priority": "medium",
+      "status": "in-progress"
+    }
+  ]
+}
