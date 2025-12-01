@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .calendar-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .calendar-container h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .calendar-container img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
-    
+
+<div class="calendar-container">
+  <h2>GitHub Contributions Calendar</h2>
+  <img id="github-calendar" alt="GitHub Calendar">
+</div>
+
+<script>
+  const username = "kalyan-alladi234";
+
+  // Using ghchart.rshah.org (works sometimes, may have hotlink issues)
+  // const calendarUrl = `https://ghchart.rshah.org/${username}`;
+
+  // Recommended: Use GitHub Profile Summary Cards (HTTPS, works after deployment)
+  const calendarUrl = `https://github-profile-summary-cards.vercel.app/api/cards/stats?username=${username}`;
+
+  document.getElementById("github-calendar").src = calendarUrl;
+</script>
+
 </body>
 </html>

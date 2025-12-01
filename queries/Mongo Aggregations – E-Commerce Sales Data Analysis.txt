@@ -1,0 +1,118 @@
+db.orders.aggregate([
+  {
+    $group: {
+      _id: "$productName",
+      totalQuantity: { $sum: "$quantity" }
+    }
+  },
+  { $sort: { totalQuantity: -1 } },
+  { $limit: 3 }
+])
+{
+  _id: 'T-shirt',
+  totalQuantity: 14
+}
+{
+  _id: 'Shoes',
+  totalQuantity: 5
+}
+{
+  _id: 'iPhone 14',
+  totalQuantity: 5
+}
+db.orders.aggregate([
+  {
+    $group: {
+      _id: "$category",
+      totalRevenue: { $sum: "$totalPrice" }
+    }
+  }
+])
+{
+  _id: 'Clothing',
+  totalRevenue: 630
+}
+{
+  _id: 'Electronics',
+  totalRevenue: 5450
+}
+{
+  _id: 'Home Appliances',
+  totalRevenue: 490
+}
+db.orders.aggregate([
+  {
+    $group: {
+      _id: null,
+      avgOrderPrice: { $avg: "$totalPrice" }
+    }
+  }
+])
+{
+  _id: null,
+  avgOrderPrice: 438
+}
+db.orders.aggregate([
+  {
+    $group: {
+      _id: { $month: { $toDate: "$orderDate" } },
+      totalOrders: { $sum: 1 }
+    }
+  },
+  { $sort: { "_id": 1 } }
+])
+{
+  _id: 1,
+  totalOrders: 2
+}
+{
+  _id: 2,
+  totalOrders: 2
+}
+{
+  _id: 3,
+  totalOrders: 3
+}
+{
+  _id: 4,
+  totalOrders: 4
+}
+{
+  _id: 11,
+  totalOrders: 2
+}
+{
+  _id: 12,
+  totalOrders: 2
+}
+db.orders.aggregate([
+  {
+    $group: {
+      _id: "$category",
+      totalRevenue: { $sum: "$totalPrice" }
+    }
+  },
+  { $sort: { totalRevenue: -1 } },
+  { $limit: 1 }
+])
+{
+  _id: 'Electronics',
+  totalRevenue: 5450
+}
+db.orders.aggregate([
+  {
+    $group: {
+      _id: "$productName",
+      frequency: { $sum: 1 }
+    }
+  },
+  { $sort: { frequency: -1 } },
+  { $limit: 1 }
+])
+{
+  _id: 'iPhone 14',
+  frequency: 4
+}
+unit5
+
+
